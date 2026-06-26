@@ -619,8 +619,9 @@ function shareEstimate() {
         btn.innerHTML = orig;
       }
     }, "image/png");
-  }).catch(function() {
+  }).catch(function(err) {
     btn.innerHTML = orig;
+    alert("Помилка: " + (err && err.message ? err.message : err));
   });
 }
 
