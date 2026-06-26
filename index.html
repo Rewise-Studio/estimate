@@ -205,6 +205,37 @@
   .receipt-footer { text-align: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(58,50,40,0.1); font-size: 9px; color: rgba(58,50,40,0.3); letter-spacing: 0.2em; text-transform: uppercase; }
   .empty-receipt { text-align: center; padding: 60px 0; color: rgba(58,50,40,0.3); font-size: 12px; }
   .empty-receipt .icon { font-size: 32px; margin-bottom: 12px; }
+
+  /* ─── МОБІЛЬНА ВЕРСІЯ ─── */
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+    .panel-left {
+      width: 100%;
+      min-width: 0;
+      height: auto;
+      position: static;
+      overflow: visible;
+      border-right: none;
+      border-bottom: 1px solid rgba(160,132,92,0.2);
+    }
+    .items-scroll {
+      overflow-y: visible;
+      max-height: none;
+    }
+    .panel-right {
+      width: 100%;
+      padding: 32px 20px 48px;
+    }
+    .receipt-wrap {
+      max-width: 100%;
+    }
+    #receipt {
+      padding: 32px 24px;
+    }
+  }
+
 </style>
 </head>
 <body>
