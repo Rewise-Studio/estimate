@@ -588,17 +588,40 @@ function buildTextEstimate() {
 }
 
 function shareEstimate() {
-  const text = buildTextEstimate();
-  if (navigator.share) {
-    navigator.share({ text: text }).catch(() => {});
-  } else {
-    navigator.clipboard.writeText(text).then(() => {
-      const btn = document.querySelectorAll(".btn-action")[0];
-      const orig = btn.innerHTML;
-      btn.textContent = "Скопійовано ✓";
-      setTimeout(() => btn.innerHTML = orig, 2000);
-    });
-  }
+  const btn = document.querySelectorAll(".btn-action")[0];
+  const orig = btn.innerHTML;
+  btn.textContent = "Готую...";
+
+  html2canvas(document.getElementById("receipt"), {
+    backgroundColor: "#F0EBE3",
+    scale: 2,
+    useCORS: true
+  }).then(function(canvas) {
+    canvas.toBlob(function(blob) {
+      const file = new File([blob], "rewise-koshtorys.png", { type: "image/png" });
+
+      // Якщо пристрій підтримує надсилання файлів (мобільні)
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator.share({
+          files: [file],
+          title: "Rewise — Кошторис"
+        }).then(function() {
+          btn.innerHTML = orig;
+        }).catch(function() {
+          btn.innerHTML = orig;
+        });
+      } else {
+        // Fallback: завантажуємо картинку
+        const link = document.createElement("a");
+        link.download = "rewise-koshtorys-" + Date.now() + ".png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        btn.innerHTML = orig;
+      }
+    }, "image/png");
+  }).catch(function() {
+    btn.innerHTML = orig;
+  });
 }
 
 function copyText() {
