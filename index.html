@@ -179,32 +179,79 @@
   .btn-action:hover { background: var(--cognac); color: #fff; }
   .btn-action svg { width: 14px; height: 14px; vertical-align: -2px; margin-right: 6px; }
 
-  #receipt { background: var(--linen); color: var(--dark); border-radius: 8px; padding: 40px 36px; width: 100%; font-family: 'Commissioner', sans-serif; font-weight: 300; }
+  #receipt { background: var(--linen); color: var(--dark); border-radius: 8px; padding: 40px 36px; width: 100%; font-family: 'Commissioner', sans-serif; font-weight: 400; }
   .receipt-header { text-align: center; padding-bottom: 24px; border-bottom: 1px solid rgba(58,50,40,0.15); margin-bottom: 24px; }
   .receipt-logo { font-family: 'Tenor Sans', serif; font-size: 13px; letter-spacing: 0.25em; color: var(--brown); text-transform: uppercase; margin-bottom: 4px; }
-  .receipt-tagline { font-size: 10px; color: rgba(58,50,40,0.45); letter-spacing: 0.15em; text-transform: uppercase; }
-  .receipt-meta { display: flex; justify-content: space-between; font-size: 11px; color: rgba(58,50,40,0.5); margin-bottom: 20px; }
+  .receipt-tagline { font-size: 10px; color: rgba(58,50,40,0.7); letter-spacing: 0.15em; text-transform: uppercase; }
+  .receipt-meta { display: flex; justify-content: space-between; font-size: 11px; color: rgba(58,50,40,0.75); margin-bottom: 20px; }
   .receipt-client { background: rgba(160,132,92,0.1); border-radius: 5px; padding: 12px 16px; margin-bottom: 24px; font-size: 12px; }
   .receipt-client-row { display: flex; justify-content: space-between; padding: 3px 0; }
-  .rc-label { color: rgba(58,50,40,0.5); }
+  .rc-label { color: rgba(58,50,40,0.7); }
   .rc-value { color: var(--brown); font-weight: 400; }
   .receipt-items { margin-bottom: 24px; }
   .receipt-item { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid rgba(58,50,40,0.1); }
   .receipt-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
   .receipt-item-title { display: flex; align-items: baseline; margin-bottom: 6px; }
   .ri-num { font-family: 'Tenor Sans', serif; font-size: 10px; color: var(--cognac); letter-spacing: 0.15em; white-space: nowrap; }
-  .ri-name { font-size: 13px; font-weight: 400; color: var(--dark); margin-left: 10px; }
+  .ri-name { font-size: 13px; font-weight: 500; color: var(--dark); margin-left: 10px; }
   .ri-note { font-size: 11px; color: rgba(58,50,40,0.45); font-style: italic; padding: 0 0 5px 0; }
-  .receipt-service-row { display: flex; justify-content: space-between; font-size: 11px; color: rgba(58,50,40,0.6); padding: 3px 0; }
-  .rs-price { color: var(--brown); font-weight: 400; }
+  .receipt-service-row { display: flex; justify-content: space-between; font-size: 12px; color: rgba(58,50,40,0.95); padding: 4px 0; }
+  .rs-price { color: var(--brown); font-weight: 500; }
   .receipt-divider { border: none; border-top: 1px solid rgba(58,50,40,0.2); margin: 20px 0; }
   .receipt-total-row { display: flex; justify-content: space-between; align-items: baseline; }
-  .rt-label { font-size: 11px; color: rgba(58,50,40,0.5); text-transform: uppercase; letter-spacing: 0.1em; }
+  .rt-label { font-size: 11px; color: rgba(58,50,40,0.75); text-transform: uppercase; letter-spacing: 0.1em; }
   .rt-amount { font-family: 'Tenor Sans', serif; font-size: 22px; color: var(--dark); }
-  .receipt-note { font-size: 10px; color: rgba(58,50,40,0.4); text-align: center; margin-top: 20px; line-height: 1.6; font-style: italic; }
-  .receipt-footer { text-align: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(58,50,40,0.1); font-size: 9px; color: rgba(58,50,40,0.3); letter-spacing: 0.2em; text-transform: uppercase; }
+  .receipt-note { font-size: 10px; color: rgba(58,50,40,0.6); text-align: center; margin-top: 20px; line-height: 1.6; font-style: italic; }
+  .receipt-footer { text-align: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(58,50,40,0.1); font-size: 9px; color: rgba(58,50,40,0.5); letter-spacing: 0.2em; text-transform: uppercase; }
   .empty-receipt { text-align: center; padding: 60px 0; color: rgba(58,50,40,0.3); font-size: 12px; }
   .empty-receipt .icon { font-size: 32px; margin-bottom: 12px; }
+
+
+  /* ─── ПОШУК ПОСЛУГИ ─── */
+  .svc-search-wrap { position: relative; flex: 1 1 0; min-width: 0; }
+  .svc-search-input {
+    width: 100%;
+    background: #2a2420;
+    border: 1px solid rgba(160,132,92,0.2);
+    border-radius: 4px;
+    padding: 7px 8px;
+    color: var(--linen);
+    font-family: 'Commissioner', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    outline: none;
+  }
+  .svc-search-input:focus { border-color: var(--cognac); }
+  .svc-search-input::placeholder { color: rgba(240,235,227,0.3); }
+  .svc-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: #2a2420;
+    border: 1px solid rgba(160,132,92,0.3);
+    border-radius: 4px;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 50;
+    display: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .svc-dropdown.open { display: block; }
+  .svc-option {
+    padding: 9px 10px;
+    font-size: 12px;
+    color: var(--linen);
+    cursor: pointer;
+    border-bottom: 1px solid rgba(160,132,92,0.08);
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .svc-option:last-child { border-bottom: none; }
+  .svc-option:hover, .svc-option.active { background: rgba(160,132,92,0.2); }
+  .svc-option .so-price { color: var(--cognac); white-space: nowrap; }
+  .svc-option .so-empty { color: rgba(240,235,227,0.4); font-style: italic; }
 
   /* ─── МОБІЛЬНА ВЕРСІЯ ─── */
   @media (max-width: 768px) {
@@ -391,15 +438,74 @@ function updateNote(id, val) {
   updateReceipt();
 }
 
-function addService(id) {
-  const sel = document.getElementById("svc-select-" + id);
-  if (!sel.value) return;
-  const parts = sel.value.split("|");
+function addService(id, name, price) {
   const item = items.find(i => i.id === id);
-  item.services.push({ name: parts[0], price: parseInt(parts[1]) });
-  sel.value = "";
+  item.services.push({ name: name, price: parseInt(price) });
   renderItems();
   updateReceipt();
+}
+
+// Отримати послуги поточного відділу для речі
+function getItemServices(item) {
+  var catData = PRICE[item.category];
+  if (!catData) return [];
+  return catData.departments[item.department] || [];
+}
+
+// Відкрити випадаючий список
+function openDropdown(id) {
+  var item = items.find(i => i.id === id);
+  if (!item) return;
+  renderDropdown(id, "");
+  var dd = document.getElementById("svc-dd-" + id);
+  if (dd) dd.classList.add("open");
+}
+
+// Фільтрація по введеному тексту
+function filterServices(id) {
+  var input = document.getElementById("svc-input-" + id);
+  renderDropdown(id, input ? input.value : "");
+  var dd = document.getElementById("svc-dd-" + id);
+  if (dd) dd.classList.add("open");
+}
+
+// Малюємо опції списку
+function renderDropdown(id, query) {
+  var item = items.find(i => i.id === id);
+  var dd = document.getElementById("svc-dd-" + id);
+  if (!item || !dd) return;
+  var services = getItemServices(item);
+  var q = query.trim().toLowerCase();
+
+  if (services.length === 0) {
+    dd.innerHTML = '<div class="svc-option"><span class="so-empty">Спочатку оберіть відділ</span></div>';
+    return;
+  }
+
+  // Фільтруємо, але зберігаємо оригінальний індекс
+  var html = "";
+  services.forEach(function(s, origIdx) {
+    if (q && s.name.toLowerCase().indexOf(q) === -1) return;
+    html += '<div class="svc-option" onclick="selectService(' + id + ', ' + origIdx + ')">'
+      + '<span>' + s.name + '</span>'
+      + '<span class="so-price">' + s.price + ' ₴</span>'
+      + '</div>';
+  });
+
+  if (!html) {
+    html = '<div class="svc-option"><span class="so-empty">Нічого не знайдено</span></div>';
+  }
+  dd.innerHTML = html;
+}
+
+// Вибір послуги з списку — по індексу в масиві послуг відділу
+function selectService(id, origIdx) {
+  var item = items.find(i => i.id === id);
+  if (!item) return;
+  var services = getItemServices(item);
+  var s = services[origIdx];
+  if (!s) return;
+  addService(id, s.name, s.price);
 }
 
 function removeService(itemId, svcIdx) {
@@ -428,12 +534,6 @@ function renderItems() {
     const deptKeys = Object.keys(catData.departments);
     const deptOptions = deptKeys.map(d =>
       '<option value="' + d + '"' + (d === item.department ? ' selected' : '') + '>' + d + '</option>'
-    ).join("");
-
-    // Послуги обраного відділу
-    const deptServices = catData.departments[item.department] || [];
-    const availSvcs = deptServices.map(s =>
-      '<option value="' + s.name + '|' + s.price + '">' + s.name + ' — ' + s.price + ' ₴</option>'
     ).join("");
 
     // Вже додані послуги
@@ -469,11 +569,11 @@ function renderItems() {
       + '</div>'
       + '<div class="services-list">' + svcRows + '</div>'
       + '<div class="add-service">'
-        + '<select id="svc-select-' + item.id + '">'
-          + '<option value="">— обрати послугу —</option>'
-          + availSvcs
-        + '</select>'
-        + '<button class="btn-add-svc" onclick="addService(' + item.id + ')">+</button>'
+        + '<div class="svc-search-wrap">'
+          + '<input type="text" class="svc-search-input" id="svc-input-' + item.id + '" placeholder="Пошук або вибір послуги..." autocomplete="off" '
+            + 'oninput="filterServices(' + item.id + ')" onfocus="openDropdown(' + item.id + ')">'
+          + '<div class="svc-dropdown" id="svc-dd-' + item.id + '"></div>'
+        + '</div>'
       + '</div>';
 
     container.appendChild(div);
@@ -481,16 +581,6 @@ function renderItems() {
 }
 
 function calculateAll() {
-  // Забираем выбранную услугу из каждой карточки и добавляем
-  items.forEach(function(item) {
-    var sel = document.getElementById("svc-select-" + item.id);
-    if (sel && sel.value) {
-      var parts = sel.value.split("|");
-      item.services.push({name: parts[0], price: parseInt(parts[1])});
-      sel.value = "";
-    }
-  });
-  renderItems();
   updateReceipt();
 }
 
@@ -551,7 +641,7 @@ function updateReceipt() {
         + '<span class="rt-label">Разом</span>'
         + '<span class="rt-amount">' + total + ' ₴</span>'
       + '</div>'
-      + '<p class="receipt-note">Остаточна вартість узгоджується після огляду виробу.<br>Кошторис дійсний протягом 7 днів.</p>' : '')
+      + '<p class="receipt-note">Остаточна вартість узгоджується після огляду речі.<br>Кошторис дійсний протягом 7 днів.</p>' : '')
     + '<div class="receipt-footer">rewise-studio · ukraine</div>';
 }
 
@@ -581,7 +671,7 @@ function buildTextEstimate() {
   if (total > 0) {
     lines.push("💰 Разом: " + total + " ₴");
     lines.push("");
-    lines.push("Остаточна вартість узгоджується після огляду виробу.");
+    lines.push("Остаточна вартість узгоджується після огляду речі.");
   }
   lines.push("Rewise Studio");
   return lines.join("\n");
@@ -619,9 +709,8 @@ function shareEstimate() {
         btn.innerHTML = orig;
       }
     }, "image/png");
-  }).catch(function(err) {
+  }).catch(function() {
     btn.innerHTML = orig;
-    alert("Помилка: " + (err && err.message ? err.message : err));
   });
 }
 
@@ -650,7 +739,7 @@ function copyText() {
   });
   lines.push("💰 Разом: " + total + " ₴");
   lines.push("");
-  lines.push("Остаточна вартість узгоджується після огляду виробу.");
+  lines.push("Остаточна вартість узгоджується після огляду речі.");
   lines.push("Rewise Studio");
   navigator.clipboard.writeText(lines.join("\n")).then(() => {
     const btn = document.querySelectorAll(".btn-action")[0];
@@ -673,6 +762,14 @@ function saveImage() {
   });
 }
 
+
+// Закриття випадаючого списку при кліку поза ним
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".svc-search-wrap")) {
+    var dds = document.querySelectorAll(".svc-dropdown.open");
+    dds.forEach(function(dd){ dd.classList.remove("open"); });
+  }
+});
 
 // Старт: завантажуємо прайс при відкритті
 loadPrice();
